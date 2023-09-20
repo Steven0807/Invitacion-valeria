@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedir Ser Novios</title>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; background-image: url('prueba.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
+
+    <div style="background-color: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); position: relative;">
+        <h1 style="color: #333;">¿Quieres ir a cine conmigo?</h1>
+        <div>
+            <button style="background-color: #FF6347; border: none; color: white; padding: 15px 30px; font-size: 24px; margin: 20px; cursor: pointer; border-radius: 10px; transition: transform 0.3s;" onclick="moveButton()">No</button>
+            <button style="background-color: #32CD32; border: none; color: white; padding: 15px 30px; font-size: 24px; margin: 20px; cursor: pointer; border-radius: 10px;" onclick="showDialog()">Sí</button>
+        </div>
+    </div>
+
+    <img src="heart.png" alt="Heart" style="position: absolute; top: 60px; left: 60px; width: 350px; height: auto;">
+    <img src="flower.png" alt="Flower" style="position: absolute; top: 60px; right: 60px; width: 350px; height: auto;">
+
+    <!-- Banner en la parte inferior -->
+<div style="background-color: #F7E93D ; color: black; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); position: absolute; bottom: 0; text-align: center;">
+    <p><em>Espero que sepas cuánto significas para mí. Tu sonrisa ilumina mis días y tu compañía hace que cada momento sea especial. No necesito palabras extravagantes para expresarte lo importante que eres en mi vida. Simplemente, quiero que sepas que estoy agradecido/a de tenerte a mi lado y que cada día contigo es un regalo que atesoro. Te amo mucho.</em></p>
+</div>
+
+
+    <!-- Sección del mensaje después de hacer clic en "Sí" -->
+    <!-- Banner en la parte inferior -->
+<div style="background-color: #F7E93D ; color: black; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); margin-top: 20px; display: none;" id="mensajeFinal">
+    <p><em>Quiero pedirte disculpas por no haberte dado las flores amarillas pero se que te las mereces. Eres lo más importante para mí y haré todo lo posible para hacerte feliz.</em></p>
+</div>
+
+
+    <script>
+        function moveButton() {
+            const button = document.querySelector('button');
+            const container = document.querySelector('div');
+            const maxX = container.clientWidth - button.clientWidth;
+            const maxY = container.clientHeight - button.clientHeight;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            button.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        function showDialog() {
+            const confirmation = confirm("¡Claro que sí! ¿Segura que quieres ir?");
+            if (confirmation) {
+                // Mostrar el mensaje de confirmación
+                const mensajeFinal = document.getElementById('mensajeFinal');
+                mensajeFinal.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
